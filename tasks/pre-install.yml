@@ -15,3 +15,12 @@
     enabled: no
     gpgkey: https://getfedora.org/static/352C64E5.txt
 
+- name: add virtual bridge interface to NetworkManager's unmanaged devices
+  ini_file:
+    dest: /etc/NetworkManager/NetworkManager.conf
+    section: keyfile
+    option: unmanaged-devices
+    value: interface-name:virbr0
+    no_extra_spaces: yes
+    backup: yes
+  notify: restart NetworkManager
