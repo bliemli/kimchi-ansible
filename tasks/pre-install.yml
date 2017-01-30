@@ -1,0 +1,17 @@
+---
+#- name: install python and dependencies for ansible modules
+#  raw: yum -y install python python2-dnf libselinux-python
+#  changed_when: false
+
+# Intel or AMD? Intel VT-x or AMD SVM?
+# grep vmx /proc/cpuinfo
+# grep svm /proc/cpuinfo
+
+- name: add EPEL repository
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+    enabled: no
+    gpgkey: https://getfedora.org/static/352C64E5.txt
+

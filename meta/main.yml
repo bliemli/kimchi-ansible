@@ -1,0 +1,11 @@
+---
+galaxy_info:
+  author: Benjamin Affolter
+  description: Role for installing Kimchi and dependencies
+  company: 
+  license: MIT
+  min_ansible_version: 2.0
+  platforms:
+    - name: EL
+      versions:
+        - 7

@@ -1,0 +1,14 @@
+---
+#- name: open port for home assistant
+#  firewalld:
+#    port: "{{ ha_port }}/tcp"
+#    permanent: true
+#    state: enabled
+#    immediate: yes
+
+# Configure kimchi?
+# Open firewall port for HTTP/HTTPS
+
+- name: start wokd
+  systemd: name=wokd enabled=yes state=started
+

@@ -1,0 +1,8 @@
+---
+- hosts: kimchi
+  become: true
+  vars:
+    enable_pci_passthrough: true
+
+  tasks:
+  - include: tasks/main.yml

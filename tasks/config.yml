@@ -1,0 +1,14 @@
+---
+
+# Check for IOMMU and set it (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/chap-Guest_virtual_machine_device_configuration.html#sect-Guest_virtual_machine_device_configuration-PCI_devices)
+
+- name: enable PCI passthrough
+  lineinfile:
+    path: /etc/sysconfig/grub
+    regexp: '^(GRUB_CMDLINE_LINUX=(?!.*intel_iommu)\"[^\"]+)(\".*)'
+    line: '\1 intel_iommu=pt\2'
+    backrefs: yes
+  when: enable_pci_passthrough
+
+# amd_iommu=pt
+

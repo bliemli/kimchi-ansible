@@ -1,0 +1,4 @@
+---
+# Enable PCI passthrough by setting the appropriate GRUB boot parameter
+enable_pci_passthrough: false
+
