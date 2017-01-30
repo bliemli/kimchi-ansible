@@ -10,5 +10,8 @@
 # Open firewall port for HTTP/HTTPS
 
 - name: start wokd
-  systemd: name=wokd enabled=yes state=started
+  systemd:
+    name: wokd
+    enabled: yes
+    state: started
 
