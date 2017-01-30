@@ -15,6 +15,13 @@
     group: root
     mode: 0644
 
+- name: allow nginx to bind to ports 8000-8001 and 8010
+  seport:
+    ports: 8000-8001,8010
+    proto: tcp
+    setype: http_port_t
+    state: present
+
 - name: start wokd
   systemd:
     name: wokd
