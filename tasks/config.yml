@@ -4,11 +4,11 @@
 
 - name: enable PCI passthrough
   lineinfile:
-    path: /etc/sysconfig/grub
+    dest: /etc/sysconfig/grub
     regexp: '^(GRUB_CMDLINE_LINUX=(?!.*intel_iommu)\"[^\"]+)(\".*)'
     line: '\1 intel_iommu=pt\2'
     backrefs: yes
-  when: enable_pci_passthrough
+  when: enable_pci_passthrough | default(false)
 
 # amd_iommu=pt
 
