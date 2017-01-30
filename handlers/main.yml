@@ -1,0 +1,3 @@
+---
+- name: restart wokd
+  systemd: name=wokd state=restarted
