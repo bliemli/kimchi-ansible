@@ -4,44 +4,88 @@
 
 [server]
 # Hostname or IP address to listen on
+{% if wok.host | default(false) %}
+host = {{ wok.host }}
+{% else %}
 #host = 0.0.0.0
+{% endif %}
 
 # Port to listen on
+{% if wok.port | default(false) %}
+port = {{ wok.port }}
+{% else %}
 #port = 8000
+{% endif %}
 
 # Start an SSL-enabled server on the given port
+{% if wok.ssl_port | default(false) %}
+port = {{ wok.ssl_port }}
+{% else %}
 #ssl_port = 8001
+{% endif %}
 
 # Allow user disables HTTP port. In that case, all the connections
 # will be done directly through HTTPS port (values: true|false)
+{% if wok.https_only | default(false) %}
+https_only = {{ wok.https_only }}
+{% else %}
 #https_only = false
+{% endif %}
 
 # Cherrypy server port
+{% if wok.cherrypy_port | default(false) %}
+cherrypy_port = {{ wok.cherrypy_port }}
+{% else %}
 #cherrypy_port = 8010
+{% endif %}
 
 # Port for websocket proxy to listen on
+{% if wok.websockets_port | default(false) %}
+websockets_port = {{ wok.websockets_port }}
+{% else %}
 #websockets_port = 64667
+{% endif %}
 
 # Number of minutes that a session can remain idle before the server
 # terminates it automatically.
+{% if wok.session_timeout | default(false) %}
+session_timeout = {{ wok.session_timeout }}
+{% else %}
 #session_timeout = 10
+{% endif %}
 
 # The full path to an SSL Certificate or chain of certificates in
 # PEM format. When a chain is used, the server's certificate must be
 # the first certificate in the file with the chain concatenated into
 # the end of that certificate. If left unspecified, Wok will generate
 # a self-signed certificate automatically.
+{% if wok.ssl_cert | default(false) %}
+ssl_cert = {{ wok.ssl_cert }}
+{% else %}
 #ssl_cert =
+{% endif %}
 
 # The corresponding private key in PEM format for the SSL Certificate supplied
 # above.  If left blank, Wok will generate a self-signed certificate.
+{% if wok.ssl_key | default(false) %}
+ssl_key = {{ wok.ssl_key }}
+{% else %}
 #ssl_key =
+{% endif %}
 
 # Running environment of the server
+{% if wok.environment | default(false) %}
+environment = {{ wok.environment }}
+{% else %}
 #environment = production
+{% endif %}
 
 # Max request body size in KB, default value is 4GB
+{% if wok.max_body_size | default(false) %}
+max_body_size = {{ wok.max_body_size }}
+{% else %}
 #max_body_size = 4 * 1024 * 1024
+{% endif %}
 
 [logging]
 # Log directory
@@ -50,24 +94,52 @@
 # configuration file to keep logs being compressed.
 # Look /etc/logrotate.d/wokd
 
+{% if wok.log_dir | default(false) %}
+log_dir = {{ wok.log_dir }}
+{% else %}
 #log_dir = /var/log/wok
+{% endif %}
 
 # Logging level: debug, info, warning, error or critical
+{% if wok.log_level | default(false) %}
+log_level = {{ wok.log_level }}
+{% else %}
 #log_level = debug
+{% endif %}
 
 [authentication]
 # Authentication method, available option: pam, ldap.
+{% if wok.method | default(false) %}
+method = {{ wok.method }}
+{% else %}
 # method = pam
+{% endif %}
 
 # If specified method to ldap, following fields need to be specified.
 # ldap server domain name used to authenticate.
+{% if wok.ldap_server | default(false) %}
+ldap_server = {{ wok.ldap_server }}
+{% else %}
 # ldap_server = "localhost"
+{% endif %}
 
 # Search tree base in ldap
+{% if wok.ldap_search_base | default(false) %}
+ldap_search_base = {{ wok.ldap_search_base }}
+{% else %}
 # ldap_search_base = "ou=People, dc=wok, dc=org"
+{% endif %}
 
 # User id filter
+{% if wok.ldap_search_filter | default(false) %}
+ldap_search_filter = {{ wok.ldap_search_filter }}
+{% else %}
 # ldap_search_filter = "uid=%(username)s"
+{% endif %}
 
 # User IDs regarded as Wok admin
+{% if wok.ldap_admin_id | default(false) %}
+ldap_admin_id = {{ wok.ldap_admin_id }}
+{% else %}
 # ldap_admin_id = "foo@foo.com, bar@bar.com"
+{% endif %}

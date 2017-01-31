@@ -12,3 +12,7 @@
 
 # amd_iommu=pt
 
+- name: configure Wok server
+  template: src=wok.conf.j2 dest=/etc/wok/wok.conf
+  when: wok is defined
+  #notify: restart wokd

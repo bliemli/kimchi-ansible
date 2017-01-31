@@ -2,3 +2,25 @@
 # Enable PCI passthrough by setting the appropriate GRUB boot parameter
 enable_pci_passthrough: false
 
+# Wok configuration
+# See template for explanation
+wok:
+  host: 0.0.0.0
+  port: 8000
+  ssl_port: 8001
+  https_only: false
+  cherrypy_port: 8010
+  websockets_port: 64667
+  session_timeout: 10
+  ssl_cert: 
+  ssl_key: 
+  environment: production
+  max_body_size: 4 * 1024 * 1024
+  log_dir: /var/log/wok
+  log_level: error
+  method: pam
+  ldap_server: 
+  ldap_search_base: "ou=People, dc=wok, dc=org"
+  ldap_search_filter: "uid=%(username)s"
+  ldap_admin_id: "foo@foo.com, bar@bar.com"
+
