@@ -1,12 +1,4 @@
 ---
-#- name: install python and dependencies for ansible modules
-#  raw: yum -y install python python2-dnf libselinux-python
-#  changed_when: false
-
-# Intel or AMD? Intel VT-x or AMD SVM?
-# grep vmx /proc/cpuinfo
-# grep svm /proc/cpuinfo
-
 - name: add EPEL repository
   yum_repository:
     name: epel
@@ -14,13 +6,3 @@
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
     enabled: no
     gpgkey: https://getfedora.org/static/352C64E5.txt
-
-- name: add virtual bridge interface to NetworkManager's unmanaged devices
-  ini_file:
-    dest: /etc/NetworkManager/NetworkManager.conf
-    section: keyfile
-    option: unmanaged-devices
-    value: interface-name:virbr0
-    no_extra_spaces: yes
-    backup: yes
-  notify: restart NetworkManager

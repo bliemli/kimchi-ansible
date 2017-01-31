@@ -1,6 +1,3 @@
 ---
 - name: restart wokd
-  systemd: name=wokd state=restarted
-
-- name: restart NetworkManager
-  systemd: name=NetworkManager state=restarted
+  service: name=wokd state=restarted

@@ -1,6 +1,8 @@
 ---
-
 # Check for IOMMU and set it (https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/chap-Guest_virtual_machine_device_configuration.html#sect-Guest_virtual_machine_device_configuration-PCI_devices)
+# Intel VT-x or AMD SVM?
+# grep vmx /proc/cpuinfo
+# grep svm /proc/cpuinfo
 
 - name: enable PCI passthrough
   lineinfile:
