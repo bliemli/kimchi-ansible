@@ -5,7 +5,7 @@
 #  - python-jsonschema
 #  - nginx
 
-- name: install Kimchi and its prerequisites WoK and Ginger-base
+- name: install Kimchi and its prerequisites Wok and Ginger-base
   yum: name={{ item }} state=present enablerepo=epel
   with_items:
   - https://kimchi-project.github.io/wok/downloads/latest/wok.el7.centos.noarch.rpm
