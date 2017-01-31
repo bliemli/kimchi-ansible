@@ -6,3 +6,9 @@
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
     enabled: no
     gpgkey: https://getfedora.org/static/352C64E5.txt
+
+- name: disable NetworkManager
+  systemd: name=NetworkManager enabled=no state=stopped
+
+- name: enable network
+  systemd: name=network enabled=yes state=started
