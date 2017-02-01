@@ -5,3 +5,8 @@
   - https://kimchi-project.github.io/wok/downloads/latest/wok.el7.centos.noarch.rpm
   - https://kimchi-project.github.io/gingerbase/downloads/latest/ginger-base.el7.centos.noarch.rpm
   - https://kimchi-project.github.io/kimchi/downloads/latest/kimchi.el7.centos.noarch.rpm
+
+- name: install additional dependencies
+  yum: name={{ item }} state=present
+  with_items:
+  - numpy
