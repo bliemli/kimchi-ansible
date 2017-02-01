@@ -22,7 +22,7 @@
     setype: http_port_t
     state: present
 
-- name: start wokd
+- name: start and enable wokd
   systemd:
     name: wokd
     daemon_reload: yes
