@@ -13,4 +13,8 @@
     enabled: no
     gpgkey: https://getfedora.org/static/352C64E5.txt
 
+- name: add CentOS Virtualization SIG repository
+  yum: name=centos-release-qemu-ev state=present
 
+- name: upgrade all packages
+  yum: name='*' state=latest
