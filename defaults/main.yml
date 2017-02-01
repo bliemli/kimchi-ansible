@@ -17,7 +17,7 @@ wok:
   environment: production
   max_body_size: 4 * 1024 * 1024
   log_dir: /var/log/wok
-  log_level: error
+  log_level: info
   method: pam
   ldap_server: 
   ldap_search_base: "ou=People, dc=wok, dc=org"
