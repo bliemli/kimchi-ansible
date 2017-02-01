@@ -1,4 +1,10 @@
 ---
+- name: disable NetworkManager
+  systemd: name=NetworkManager enabled=no state=stopped
+
+- name: enable network
+  systemd: name=network enabled=yes state=started
+
 - name: add EPEL repository
   yum_repository:
     name: epel
@@ -7,8 +13,4 @@
     enabled: no
     gpgkey: https://getfedora.org/static/352C64E5.txt
 
-- name: disable NetworkManager
-  systemd: name=NetworkManager enabled=no state=stopped
 
-- name: enable network
-  systemd: name=network enabled=yes state=started
