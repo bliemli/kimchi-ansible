@@ -1,10 +1,4 @@
 ---
-#- name: install dependencies
-#  yum: name={{ item }} state=present enablerepo=epel
-#  with_items:
-#  - python-jsonschema
-#  - nginx
-
 - name: install Kimchi and its prerequisites Wok and Ginger-base
   yum: name={{ item }} state=present enablerepo=epel
   with_items:
