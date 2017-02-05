@@ -15,9 +15,9 @@
     group: root
     mode: 0644
 
-- name: allow nginx to bind to ports 8000-8001 and 8010
+- name: allow nginx to bind to necessary ports
   seport:
-    ports: 8000-8001,8010
+    ports: 8000-8001,8010,64667
     proto: tcp
     setype: http_port_t
     state: present
