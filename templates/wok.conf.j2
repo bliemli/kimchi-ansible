@@ -19,7 +19,7 @@ port = {{ wok.port }}
 
 # Start an SSL-enabled server on the given port
 {% if wok.ssl_port | default(false) %}
-port = {{ wok.ssl_port }}
+ssl_port = {{ wok.ssl_port }}
 {% else %}
 #ssl_port = 8001
 {% endif %}
