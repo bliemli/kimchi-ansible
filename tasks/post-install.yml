@@ -18,16 +18,16 @@
     group: root
     mode: 0644
 
-- name: allow nginx to bind to necessary ports
-  seport:
-    ports: "{{ wok.port | default(8000) }},{{ wok.ssl_port | default(8001) }},{{ wok.cherrypy_port | default(8010) }},{{ wok.websockets_port | default(64667) }}"
-    proto: tcp
-    setype: http_port_t
-    state: present
-
 - name: start and enable wokd
   systemd:
     name: wokd
+    daemon_reload: yes
+    enabled: yes
+    state: started
+
+- name: start and enable nginx
+  systemd:
+    name: nginx
     daemon_reload: yes
     enabled: yes
     state: started
