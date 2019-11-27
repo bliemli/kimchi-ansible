@@ -15,6 +15,49 @@
 # amd_iommu=pt
 
 - name: configure Wok server
-  template: src=wok.conf.j2 dest=/etc/wok/wok.conf
+  template: 
+    src: wok.conf.j2
+    dest: /etc/wok/wok.conf
+    force: yes
+    backup: yes
   when: wok is defined
-  #notify: restart wokd
+  notify: restart wokd
+
+- name: configure nginx for Wok server
+  template:
+    src: nginx_nossl_wok.conf.j2
+    dest: /etc/nginx/conf.d/wok.conf
+    force: yes
+    backup: yes
+  when: wok.nginx_ssl_disable
+  notify: restart nginx
+
+- name: configure nginx for Wok server
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+    force: yes
+    backup: yes
+  notify: restart nginx
+
+- name: configure nginx for Wok server
+  template:
+    src: nginx_nossl_wok.conf.j2
+    dest: /etc/nginx/conf.d/wok.conf
+    force: yes
+    backup: yes
+  when:
+  - wok.https_redirect
+  - not wok.nginx_ssl_disable
+  notify: restart nginx
+
+- name: configure nginx for Wok server
+  template:
+    src: nginx_nossl_wok.conf.j2
+    dest: /etc/nginx/conf.d/wok.conf
+    force: yes
+    backup: yes
+  when:
+  - not wok.https_redirect
+  - not wok.nginx_ssl_disable
+  notify: restart nginx

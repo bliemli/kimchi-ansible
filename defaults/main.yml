@@ -5,10 +5,12 @@ enable_pci_passthrough: false
 # Wok configuration
 # See template for explanation
 wok:
+  nginx_ssl_disable: true
   host: 0.0.0.0
   port: 8000
   ssl_port: 8001
-  https_only: false
+  proxy_port: 8001
+  https_redirect: false
   cherrypy_port: 8010
   websockets_port: 64667
   session_timeout: 10
