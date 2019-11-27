@@ -1,6 +1,8 @@
 ---
 - name: restart wokd
-  service: name=wokd state=restarted
+  service:
+    name: wokd
+    state: restarted
 
 - name: restart nginx
   service: name=nginx state=restarted
