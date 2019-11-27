@@ -57,5 +57,7 @@
     dest: /etc/nginx/conf.d/wok.conf
     force: yes
     backup: yes
-  when: (wok.https_redirect == false) and (wok.nginx_ssl_disable == false)
+  when:
+  - not wok.https_redirect
+  - not wok.nginx_ssl_disable
   notify: restart nginx
