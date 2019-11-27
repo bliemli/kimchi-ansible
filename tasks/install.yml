@@ -1,7 +1,11 @@
 ---
 - name: install Kimchi and its prerequisites Wok and Ginger-base
   yum: 
-    name: ['https://github.com/kimchi-project/kimchi/releases/download/2.5.0/kimchi-2.5.0-0.el7.centos.noarch.rpm', 'https://kimchi-project.github.io/gingerbase/downloads/latest/ginger-base.el7.centos.noarch.rpm', 'http://kimchi-project.github.io/ginger/downloads/latest/ginger.el7.centos.noarch.rpm', 'https://github.com/kimchi-project/kimchi/releases/download/2.5.0/wok-2.5.0-0.el7.centos.noarch.rpm'] 
+    name:
+    - https://github.com/kimchi-project/kimchi/releases/download/2.5.0/kimchi-2.5.0-0.el7.centos.noarch.rpm
+    - https://kimchi-project.github.io/gingerbase/downloads/latest/ginger-base.el7.centos.noarch.rpm
+    - http://kimchi-project.github.io/ginger/downloads/latest/ginger.el7.centos.noarch.rpm
+    - https://github.com/kimchi-project/kimchi/releases/download/2.5.0/wok-2.5.0-0.el7.centos.noarch.rpm
     state: present
     enablerepo: epel
 
