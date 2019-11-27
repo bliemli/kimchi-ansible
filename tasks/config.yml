@@ -29,7 +29,7 @@
     dest: /etc/nginx/conf.d/wok.conf
     force: yes
     backup: yes
-  when: wok.nginx_ssl_disable == true
+  when: wok.nginx_ssl_disable
   notify: restart nginx
 
 - name: configure nginx for Wok server
